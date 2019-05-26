@@ -3,5 +3,5 @@ package service;
 import pojo.Userinfo;
 
 public interface UserinfoService {
-    Userinfo getUserById();
+    Userinfo getUserById(int id);
 }
