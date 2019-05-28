@@ -1,6 +1,6 @@
-package dao;
+package com.neuedu.dao;
 
-import pojo.Userinfo;
+import com.neuedu.pojo.Userinfo;
 
 public interface UserMapper {
     Userinfo getUserById(int id);
