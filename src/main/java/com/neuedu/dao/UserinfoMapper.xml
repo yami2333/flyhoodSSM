@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neuedu.mapper.UserinfoMapper">
+    <insert id="userReg" parameterType="com.neuedu.pojo.Userinfo">
+        insert into userinfo(nickname,password,email,regtime)
+        values (#{nickname},#{password},#{email},#{regtime})
+    </insert>
+    <select id="userEmailCheck" parameterType="String" resultType="int">
+        select count(*) counts from userinfo where email = #{email}
+    </select>
+    <select id="userLogin" parameterType="com.neuedu.pojo.Userinfo" resultType="int">
+        select uid,nickname,password,email,sex,city,sign,headurl,authority,regtime,kissnum,isexsits from userinfo where email = #{email} and password = #{password})
+    </select>
+    <update id="uploadHeadImg" parameterType="com.neuedu.pojo.Userinfo">
+        update userinfo set headurl = #{headurl} where uid =#{uid}
+    </update>
+</mapper>
