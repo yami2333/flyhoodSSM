@@ -21,3 +21,4 @@ public class Userinfo {
     private int kissnum;
     private int isexsits;
 }
+
