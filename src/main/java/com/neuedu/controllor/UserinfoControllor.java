@@ -1,6 +1,6 @@
 package com.neuedu.controllor;
 
-import com.neuedu.mapper.UserinfoMapper;
+
 import com.neuedu.pojo.Userinfo;
 import com.neuedu.service.UserinfoService;
 import com.neuedu.utils.MD5Utils;
