@@ -8,6 +8,9 @@ import com.neuedu.utils.SqlSessionUtils;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.beans.Transient;
 
 @Service
 public class UserinfoServiceImpl implements UserinfoService {
@@ -16,16 +19,7 @@ public class UserinfoServiceImpl implements UserinfoService {
     //    private UserinfoDao ud = new UserinfoDaoImpl();
 //    private SqlSession sqlSession = SqlSessionUtils.getInstance().getSqlSession();
 
-
-
-    public UserinfoMapper getUserinfoMapper() {
-        return userinfoMapper;
-    }
     @Autowired
-    public void setUserinfoMapper(UserinfoMapper userinfoMapper) {
-        this.userinfoMapper = userinfoMapper;
-    }
-
     private UserinfoMapper userinfoMapper;
 
     public int userEmailCheck(String email) {
@@ -34,6 +28,7 @@ public class UserinfoServiceImpl implements UserinfoService {
         return userinfoMapper.userEmailCheck(email);
     }
     @Override
+    @Transactional
     public int userReg(Userinfo userinfo) {
 //        UserinfoMapper um = sqlSession.getMapper(UserinfoMapper.class);
 //        int num = um.userReg(userinfo);
@@ -48,7 +43,9 @@ public class UserinfoServiceImpl implements UserinfoService {
     }
 
     @Override
+    @Transactional
     public int uploadHeadImg(Userinfo userinfo) {
         return userinfoMapper.uploadHeadImg(userinfo);
     }
+
 }

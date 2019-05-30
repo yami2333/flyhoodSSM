@@ -15,7 +15,7 @@ http://www.springframework.org/schema/aop/spring-aop-3.0.xsd http://www.springfr
 
 	<!-- 配置数据源 -->
 	<bean name="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
-		<property name="driverClassName" value="${driverClassName}"/>
+<!--		<property name="driverClassName" value="${driverClassName}"/>-->
 		<property name="url" value="${jdbc_url}"/>
 		<property name="username" value="${jdbc_username}"/>
 		<property name="password" value="${jdbc_password}"/>
@@ -53,7 +53,7 @@ http://www.springframework.org/schema/aop/spring-aop-3.0.xsd http://www.springfr
 		<property name="filters" value="mergeStat"/>
 	</bean>
 
-	<!-- myBatis文件 -->
+	<!-- myBatis文件  (路径问题？）若自动扫描不好使就要配置SqlConfig.xml-->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"/>
 		<!-- 自动扫描entity目录, 省掉Configuration.xml里的手工配置 -->
@@ -61,7 +61,7 @@ http://www.springframework.org/schema/aop/spring-aop-3.0.xsd http://www.springfr
 	</bean>
 
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="sy.com.neuedu.dao"/>
+		<property name="basePackage" value="com.neuedu.mapper,com.neuedu.dao"/>
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
 	</bean>
 
