@@ -25,8 +25,8 @@ public class CategoryDaoImpl implements CategoryDao {
             rs = ps.executeQuery();
             while(rs.next()){
                 Category category = new Category();
-                category.setTypeid(rs.getInt("typeid"));
-                category.setTypename(rs.getString("typename"));
+//                category.setTypeid(rs.getInt("typeid"));
+//                category.setTypename(rs.getString("typename"));
                 list.add(category);
             }
         } catch (SQLException e) {

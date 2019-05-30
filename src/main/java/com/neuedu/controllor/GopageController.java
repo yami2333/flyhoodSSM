@@ -16,4 +16,9 @@ public class GopageController {
     public String goLogin(){
         return "user/login";
     }
+
+    @RequestMapping("recheck")
+    public  String goRecheck(){
+        return "category/check"
+    }
 }
